@@ -15,9 +15,15 @@ console.log(uri);
 
 async function run() {
     try {
-        
-    } 
-    finally{
+        const coffeeCollection = client.db('SJInnovation').collection('products');
+
+        app.get('/coffees', async (req, res) => {
+            const query = {};
+            const result = await coffeeCollection.find(query).toArray();
+            res.send(result);
+        })
+    }
+    finally {
 
     }
 }
